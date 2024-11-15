@@ -1,0 +1,44 @@
+<%- include('layouts/header.ejs'); %>
+
+<main class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4">Edit User</h2>
+            <!-- Form chỉnh sửa người dùng, sử dụng phương thức POST với method-override để mô phỏng PUT -->
+            <form action="/users/edit/<%= user._id %>" method="POST">
+                <input type="hidden" name="_method" value="PUT"> <!-- Giả lập phương thức PUT -->
+
+                <!-- Trường nhập tên -->
+                <div class="mb-3">
+                    <label for="firstNameInput" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstNameInput" name="firstName" value="<%= user.firstName %>" required>
+                </div>
+
+                <!-- Trường nhập họ -->
+                <div class="mb-3">
+                    <label for="lastNameInput" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastNameInput" name="lastName" value="<%= user.lastName %>" required>
+                </div>
+
+                <!-- Trường nhập email -->
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailInput" name="email" value="<%= user.email %>" required>
+                </div>
+
+                <!-- Trường chọn vai trò -->
+                <div class="mb-3">
+                    <label for="roleSelect" class="form-label">Role</label>
+                    <select class="form-select" id="roleSelect" name="role" required>
+                        <option value="Traveler" <%= user.role === 'Traveler' ? 'selected' : '' %>>Traveler</option>
+                        <option value="Guide" <%= user.role === 'Guide' ? 'selected' : '' %>>Guide</option>
+                    </select>
+                </div>
+
+                <!-- Nút submit -->
+                <button type="submit" class="btn btn-primary w-100">Update User</button>
+            </form>
+        </div>
+    </div>
+</main>
+

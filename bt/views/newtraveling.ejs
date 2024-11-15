@@ -1,0 +1,69 @@
+<%- include('layouts/header.ejs'); %>
+
+<main class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">Register for a Trip</h4>
+                </div>
+                <div class="card-body p-4">
+                    <!-- Kiểm tra xem có lỗi không và hiển thị nếu có -->
+                    <% if (typeof error !== 'undefined') { %>
+                        <div class="alert alert-danger">
+                            <%= error %>
+                        </div>
+                    <% } %>
+
+                    <form action="/travel/create" method="POST">
+                        <!-- Title input -->
+                        <div class="mb-3">
+                            <label for="titleInput" class="form-label">Trip Title</label>
+                            <input type="text" class="form-control" id="titleInput" name="title" required>
+                        </div>
+
+                        <!-- Location input -->
+                        <div class="mb-3">
+                            <label for="locationInput" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="locationInput" name="location" required>
+                        </div>
+
+                        <!-- Image URL input -->
+                        <div class="mb-3">
+                            <label for="imageUrlInput" class="form-label">Image URL</label>
+                            <input type="url" class="form-control" id="imageUrlInput" name="imageUrl">
+                        </div>
+
+                        <!-- Description input -->
+                        <div class="mb-3">
+                            <label for="descriptionInput" class="form-label">Description</label>
+                            <textarea class="form-control" id="descriptionInput" name="description" rows="4"></textarea>
+                        </div>
+
+                        <!-- Date input -->
+                        <div class="mb-3">
+                            <label for="dateInput" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="dateInput" name="date" required>
+                        </div>
+
+                        <!-- Time input -->
+                        <div class="mb-3">
+                            <label for="timeInput" class="form-label">Time</label>
+                            <input type="time" class="form-control" id="timeInput" name="time">
+                        </div>
+
+                        <!-- Guide input -->
+                        <div class="mb-3">
+                            <label for="guideInput" class="form-label">Guide</label>
+                            <input type="text" class="form-control" id="guideInput" name="guide">
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

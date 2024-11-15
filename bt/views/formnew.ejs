@@ -1,0 +1,39 @@
+<%- include('layouts/header.ejs'); %>
+
+<main class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">Create User</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/users/create" method="POST">
+                        <!-- Email input -->
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="emailInput" name="email" aria-describedby="emailHelp" required>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+
+                        <!-- Name input -->
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="nameInput" name="name" required>
+                        </div>
+
+                        <!-- Age input -->
+                        <div class="mb-3">
+                            <label for="ageInput" class="form-label">Age</label>
+                            <input type="number" class="form-control" id="ageInput" name="age" min="0" required>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
