@@ -1,101 +1,100 @@
 <%- include('layouts/header.ejs', { title: 'Trip Dashboard' }); %>
 
-<h3 class="text-center mt-3">Trip List</h3>
-<div class="container-fluid mt-4">
-    <div class="trips-container">
-        <% if (travels.length > 0) { %>
-            <% travels.forEach(travel => { %>
-                <div class="card shadow-sm">
-                    <img src="<%= travel.imageUrl || '/default-image.jpg' %>" class="card-img-top" alt="<%= travel.title %>">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= travel.title %></h5>
-                        <p class="card-text"><strong>Description:</strong> <%= travel.description %></p>
-                        <p class="card-text"><strong>Location:</strong> <%= travel.location %></p>
-                        <p class="card-text"><strong>Date:</strong> <%= travel.date %></p>
-                        <p class="card-text"><strong>Time:</strong> <%= travel.time %></p>
-                        <p class="card-text"><strong>Guide:</strong> <%= travel.guide %></p>
-                    </div>
-                    <div class="card-footer text-end">
-                        <a href="/travel/edit/<%= travel._id %>" class="btn btn-info btn-sm">Edit</a>
-                        <form action="/travel/delete/<%= travel._id %>" method="POST" class="d-inline">
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
-                    </div>
-                </div>
-            <% }); %>
-        <% } else { %>
-            <div class="alert alert-warning text-center w-100">No trips found.</div>
-        <% } %>
-    </div>
+<div class="row">
+    <!-- Main content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-2" style="transform: scale(0.9); transform-origin: top center;">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-2 mb-3 border-bottom">
+            <h1 class="h4 text-center" style="width: 100%;">Trip List</h1>
+        </div>
+
+        <form method="GET" action="/travel" class="mb-3">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search for a trip..." value="<%= q %>">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+
+        <!-- Create trip button -->
+        <div class="mb-3 text-end">
+            <a href="/travel/create" class="btn btn-success">Create New Trip</a>
+        </div>
+
+        <div class="container-fluid mt-4">
+            <div class="trips-container">
+                <% if (travels.length > 0) { %>
+                    <% travels.forEach(travel => { %>
+                        <div class="card shadow-sm">
+                            <img src="<%= travel.imageUrl || '/default-image.jpg' %>" class="card-img-top" alt="<%= travel.title %>">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= travel.title %></h5>
+                                <p class="card-text"><strong>Description:</strong> <%= travel.description %></p>
+                                <p class="card-text"><strong>Location:</strong> <%= travel.location %></p>
+                                <p class="card-text"><strong>Date:</strong> <%= travel.date %></p>
+                                <p class="card-text"><strong>Time:</strong> <%= travel.time %></p>
+                                <p class="card-text"><strong>Guide:</strong> <%= travel.guide %></p>
+                            </div>
+                            <div class="card-footer text-end">
+                                <a href="/travel/edit/<%= travel._id %>" class="btn btn-info btn-sm">Edit</a>
+                                <form action="/travel/delete/<%= travel._id %>" method="POST" class="d-inline">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <div class="alert alert-warning text-center w-100">No trips found.</div>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- CSS for responsive card layout -->
+        <style>
+        .trips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .card {
+            flex: 1 1 calc(25% - 15px);
+            max-width: 350px;
+            min-width: 300px;
+            margin: 5px;
+            border-radius: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-img-top {
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        @media (max-width: 992px) {
+            .card {
+                flex: 1 1 calc(33.333% - 15px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .card {
+                flex: 1 1 calc(50% - 15px);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .card {
+                flex: 1 1 100%;
+            }
+        }
+        </style>
+    </main>
 </div>
-
-<!-- CSS tối ưu cho cả web và di động -->
-<style>
-.trips-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center; /* Căn giữa các thẻ */
-    padding: 10px;
-    margin: 0 auto; /* Căn giữa container trong màn hình */
-    max-width: 100%; /* Đảm bảo container không vượt quá độ rộng màn hình */
-    transform: translateX(125px); /* Dịch chuyển container qua phải 10px */
-}
-
-
-.card {
-    flex: 1 1 calc(25% - 15px); /* Mỗi thẻ chiếm 1/4 hàng */
-    max-width: 250px; /* Giới hạn kích thước thẻ */
-    min-width: 200px; /* Đảm bảo thẻ không quá nhỏ */
-    border-radius: 10px;
-    margin: 5px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.card-img-top {
-    height: 150px;
-    object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.card-body {
-    padding: 10px;
-}
-
-.card-footer {
-    padding: 8px;
-    background-color: #f8f9fa;
-}
-
-/* Responsive cho thiết bị trung bình */
-@media (max-width: 992px) {
-    .card {
-        flex: 1 1 calc(33.333% - 15px); /* Mỗi thẻ chiếm 1/3 hàng */
-    }
-}
-
-/* Responsive cho thiết bị nhỏ (tablet) */
-@media (max-width: 768px) {
-    .card {
-        flex: 1 1 calc(50% - 15px); /* Mỗi thẻ chiếm 1/2 hàng */
-    }
-}
-
-/* Responsive cho thiết bị rất nhỏ (điện thoại) */
-@media (max-width: 576px) {
-    .card {
-        flex: 1 1 100%; /* Mỗi thẻ chiếm toàn bộ hàng */
-    }
-
-    .card-body {
-        padding: 8px;
-    }
-}
-
-</style>
