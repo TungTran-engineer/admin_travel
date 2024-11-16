@@ -13,33 +13,43 @@
             align-items: center;
             height: 100vh;
             background-color: #f7f7f7;
+            margin: 0;
         }
         .login-container {
             display: flex;
+            flex-direction: column;
             background-color: #fff;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             overflow: hidden;
+            width: 90%;
+            max-width: 900px;
         }
-        .left-panel {
+        .left-panel, .right-panel {
             padding: 40px;
             flex: 1;
+        }
+        .left-panel {
             background-color: #f7f7f7;
         }
         .right-panel {
-            flex: 1;
             background-color: #ff4b2b;
             color: #fff;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px;
+            padding: 20px;
         }
         .btn-login {
             background-color: #ff4b2b;
             color: #fff;
             border: none;
+        }
+        @media (min-width: 768px) {
+            .login-container {
+                flex-direction: row;
+            }
         }
     </style>
 </head>

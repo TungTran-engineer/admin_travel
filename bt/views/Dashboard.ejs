@@ -2,117 +2,118 @@
 
 <div class="row">
     <!-- Main content -->
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2 text-center" style="width: 100%;">Dashboard</h1>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-2" style="transform: scale(0.9); transform-origin: top center;">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-2 mb-3 border-bottom">
+            <h1 class="h4 text-center" style="width: 100%;">Dashboard</h1>
         </div>
 
         <!-- Statistics cards -->
-        <div class="row mb-4">
-            <div class="col-md-3">
-                <div class="card text-white bg-primary mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Earnings (Monthly)</h5>
-                        <p class="card-text">$40,000</p>
+        <div class="row mb-3">
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-white bg-primary mb-3" style="height: 120px;">
+                    <div class="card-body p-2">
+                        <h6 class="card-title">Earnings (Monthly)</h6>
+                        <p class="card-text small">$40,000</p>
                         <small><i class="fas fa-arrow-up"></i> 3.48% Since last month</small>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card text-white bg-success mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Book Trip</h5>
-                        <p class="card-text">4000 Trip</p>
-                        <small><i class="fas fa-arrow-up"></i> 6,2% Since last month</small>
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-white bg-success mb-3" style="height: 120px;">
+                    <div class="card-body p-2">
+                        <h6 class="card-title">Book Trip</h6>
+                        <p class="card-text small">4000 Trip</p>
+                        <small><i class="fas fa-arrow-up"></i> 6.2% Since last month</small>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card text-white bg-info mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">New User</h5>
-                        <p class="card-text">366 People</p>
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-white bg-info mb-3" style="height: 120px;">
+                    <div class="card-body p-2">
+                        <h6 class="card-title">New User</h6>
+                        <p class="card-text small">366 People</p>
                         <small><i class="fas fa-arrow-up"></i> 20.4% Since last month</small>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card text-white bg-warning mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Pending Requests</h5>
-                        <p class="card-text">18</p>
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-white bg-warning mb-3" style="height: 120px;">
+                    <div class="card-body p-2">
+                        <h6 class="card-title">Pending Requests</h6>
+                        <p class="card-text small">18</p>
                         <small><i class="fas fa-arrow-down"></i> 1.10% Since yesterday</small>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Chart -->
-        <!-- Row containing Monthly User Reports and Message From Customer -->
+        <!-- Chart and Messages section -->
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-3">
                 <!-- Monthly User Reports -->
-                <div class="card mb-4" style="max-width: 100%; margin: 0 auto;">
+                <div class="card" style="height: 300px;">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Monthly User Reports</h5>
-                        <canvas id="recapChart" style="max-width: 100%;"></canvas>
+                        <h6 class="card-title text-center">Monthly User Reports</h6>
+                        <canvas id="recapChart" style="max-width: 100%; height: 220px;"></canvas>
                     </div>
                 </div>
             </div>
 
-        <div class="col-md-6">
-            <!-- Message From Customer -->
-            <div class="card mb-4">
-                <div class="card-header bg-primary text-white">
-                    Message From Customer
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <strong>Hi there! I am wondering if you can help me with a problem I've be...</strong>
-                        <br>
-                        <small>Udin Cilok · 58m</small>
-                    </li>
-                    <li class="list-group-item">
-                        <strong>But I must explain to you how all this mistaken idea</strong>
-                        <br>
-                        <small>Nana Haminah · 58m</small>
-                    </li>
-                    <li class="list-group-item">
-                        <strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit</strong>
-                        <br>
-                        <small>Jajang Cincau · 25m</small>
-                    </li>
-                    <li class="list-group-item">
-                        <strong>At vero eos et accusamus et iusto odio dignissimos ducimus qui bl...</strong>
-                        <br>
-                        <small>Udin Wayang · 54m</small>
-                    </li>
-                </ul>
-                <div class="card-footer text-center">
-                    <a href="#">View More</a>
+            <div class="col-md-6 mb-3">
+                <!-- Message From Customer -->
+                <div class="card">
+                    <div class="card-header bg-primary text-white p-2">
+                        Message From Customer
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item p-2">
+                            <strong>Hi there! I am wondering if you can help me...</strong>
+                            <br><small>Udin Cilok · 58m</small>
+                        </li>
+                        <li class="list-group-item p-2">
+                            <strong>But I must explain to you how all this mistaken idea...</strong>
+                            <br><small>Nana Haminah · 58m</small>
+                        </li>
+                        <li class="list-group-item p-2">
+                            <strong>Lorem ipsum dolor sit amet, consectetur...</strong>
+                            <br><small>Jajang Cincau · 25m</small>
+                        </li>
+                        <li class="list-group-item p-2">
+                            <strong>At vero eos et accusamus et iusto odio...</strong>
+                            <br><small>Udin Wayang · 54m</small>
+                        </li>
+                    </ul>
+                    <div class="card-footer text-center p-2">
+                        <a href="#">View More</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Chart.js script and initialization -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('recapChart').getContext('2d');
-        const recapChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-                datasets: [{
-                    label: 'Revenue',
-                    data: [0, 1000, 2500, 2000, 1000, 4000, 3500, 2000, 2200, 3400],
-                    borderColor: '#4e73df',
-                    backgroundColor: 'rgba(78, 115, 223, 0.1)',
-                    fill: true
-                }]
-            }
-        });
-    </script>
-    <script src="/js/charts.js"></script>
-</main>
+        <!-- Chart.js script -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const ctx = document.getElementById('recapChart').getContext('2d');
+            const recapChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    datasets: [{
+                        label: 'Revenue',
+                        data: [0, 1000, 2500, 2000, 1000, 4000, 3500, 2000, 2200, 3400],
+                        borderColor: '#4e73df',
+                        backgroundColor: 'rgba(78, 115, 223, 0.1)',
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        </script>
+    </main>
 </div>
