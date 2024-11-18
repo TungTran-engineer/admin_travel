@@ -105,7 +105,7 @@ userRouter.put('/edit/:id', async (req, res) => {
         }
 
         // Sau khi cập nhật thành công, chuyển hướng về trang danh sách người dùng
-        res.redirect('/users');  // Chuyển hướng về trang danh sách người dùng sau khi cập nhật thành công
+        res.redirect('/users'); 
 
     } catch (error) {
         console.error('Error updating user:', error.response ? error.response.data : error.message);
@@ -115,13 +115,8 @@ userRouter.put('/edit/:id', async (req, res) => {
 
 
 
-
-
-
-
-
 // POST route for deleting a user
-userRouter.post('/delete/:id', async (req, res) => {
+userRouter.delete('/delete/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
