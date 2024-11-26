@@ -29,7 +29,7 @@
                                 <h5 class="card-title"><%= travel.title %></h5>
                                 <p class="card-text"><strong>Description:</strong> <%= travel.description %></p>
                                 <p class="card-text"><strong>Location:</strong> <%= travel.location %></p>
-                                <p class="card-text"><strong>Date:</strong> <%= travel.date %></p>
+                                <p class="card-text"><strong>Date:</strong> <%= travel.date.split('T')[0] %></p>
                                 <p class="card-text"><strong>Time:</strong> <%= travel.time %></p>
                                 <p class="card-text"><strong>Guide:</strong> <%= travel.guide %></p>
                             </div>
